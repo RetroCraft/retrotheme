@@ -1,0 +1,33 @@
+{
+  "name": "retrotheme",
+  "version": "1.0.0",
+  "description": "Theme I made for my site at stuff.retrocraft.ca.",
+  "main": "",
+  "dependencies": {
+    "autoprefixer": "^6.7.7",
+    "del": "^2.2.2",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^2.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sftp": "^0.1.5",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retrocraft/retrotheme.git"
+  },
+  "author": "James Ah Yong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/retrocraft/retrotheme/issues"
+  },
+  "homepage": "https://github.com/retrocraft/retrotheme#readme"
+}

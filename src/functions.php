@@ -71,6 +71,16 @@
     <?php
   }
 
+  function retrotheme_category_pills() {
+    global $wp_query;
+
+    $categories = get_the_category();
+
+    foreach ($categories as $category) {
+      echo '<span class="tag tag-pill tag-default">' . $category->name . '</span>';
+    }
+  }
+
   function get_date() {
     date_i18n(get_option('date_format'), the_date());
   }

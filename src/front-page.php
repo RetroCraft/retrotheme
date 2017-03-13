@@ -45,6 +45,7 @@ data-_box-100p="background-color:rgb(0,0,0)" data-_box-200p="transform:translate
                 <?php the_excerpt(); ?>
               </p>
               <p class="card-text"><small class="text-muted"><?php get_date(); ?></small></p>
+              <p class="card-text"><?php retrotheme_category_pills(); ?></p>
             </div>
           </a>
         <?php endwhile; else: ?>

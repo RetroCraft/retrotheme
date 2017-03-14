@@ -10,10 +10,10 @@
     wp_enqueue_script('tether', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js');
     wp_enqueue_script('skrollr', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js');
     wp_enqueue_script('cheet', 'https://cdn.rawgit.com/namuol/cheet.js/master/cheet.min.js');
-    wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js', array('jquery', 'tether'));
+    wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array('jquery', 'tether'));
     wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery', 'bootstrap', 'skrollr'));
 
-    wp_enqueue_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
     if (is_front_page())
       wp_enqueue_style('home', get_template_directory_uri() . '/css/home.css');
   }
@@ -52,14 +52,14 @@
         <div class="media-left"><?php echo get_avatar($comment, 64); ?></div>
         <div class="media-body">
           <?php comment_text(); ?>
-            
+
           <p class="text-muted list-group-item-text">
-            <?php 
+            <?php
               printf(__('Comment by %s', 'retrotheme'), get_comment_author_link());
               echo ' | ';
-              comment_reply_link(array_merge($args, array( 
-                'reply_text' => __('Reply', 'retrotheme'), 
-                'depth' => $depth, 
+              comment_reply_link(array_merge($args, array(
+                'reply_text' => __('Reply', 'retrotheme'),
+                'depth' => $depth,
                 'max_depth' => $args['max_depth']
               )));
             ?>
@@ -77,7 +77,7 @@
     $categories = get_the_category();
 
     foreach ($categories as $category) {
-      echo '<span class="tag tag-pill tag-default">' . $category->name . '</span>';
+      echo '<span class="badge badge-pill badge-default">' . $category->name . '</span> ';
     }
   }
 
@@ -104,9 +104,9 @@
       // Category loopythingamajig
       $is_parent = ($category->parent == 0);
       $have_link = ($is_parent || is_single());
-      
-      $breadcrumb[] = '<li class="breadcrumb-item ' . (($have_link) ? 
-        ('"><a href="' . get_term_link($category) . '">' . $category->name . '</a>') : 
+
+      $breadcrumb[] = '<li class="breadcrumb-item ' . (($have_link) ?
+        ('"><a href="' . get_term_link($category) . '">' . $category->name . '</a>') :
         ('active">' . $category->name)) . '</li>';
 
       if (!$is_parent) {
@@ -114,17 +114,17 @@
           $category = get_term($category->parent, 'category');
           $is_parent = ($category->parent == 0);
           $have_link = ($is_parent || is_single());
-          array_unshift($breadcrumb, '<li class="breadcrumb-item ' . (($have_link) ? 
-            ('"><a href="' . get_term_link($category) . '">' . $category->name . '</a>') : 
+          array_unshift($breadcrumb, '<li class="breadcrumb-item ' . (($have_link) ?
+            ('"><a href="' . get_term_link($category) . '">' . $category->name . '</a>') :
             ('active">' . $category->name)) . '</li>');
         }
       }
 
       echo implode('', $breadcrumb);
-      
+
       // Get title, if Post
       if (is_single()) echo '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-    } elseif (is_page()) { 
+    } elseif (is_page()) {
       $is_parent = ($wp_query->queried_object->post_parent == 0);
 
       $breadcrumb[] = '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
@@ -133,8 +133,8 @@
         while(!$is_parent) {
           $parent = get_page($wp_query->queried_object->post_parent);
           $is_parent = ($parent->post_parent == 0);
-          array_unshift($breadcrumb, '<li class="breadcrumb-item ' . (($is_parent) ? 
-            ('"><a href="' . get_page_link($parent->ID) . '">' . $parent->post_title . '</a>') : 
+          array_unshift($breadcrumb, '<li class="breadcrumb-item ' . (($is_parent) ?
+            ('"><a href="' . get_page_link($parent->ID) . '">' . $parent->post_title . '</a>') :
             ('active">' . $parent->post_title)) . '</li>');
         }
       }
@@ -143,11 +143,11 @@
     } elseif (is_tag()) { echo '<li class="breadcrumb-item active">Tag: ' . single_term_title('', false) . '</li>';
     } elseif (is_date()) {
       echo '<li class="breadcrumb-item">Archive</li>';
-      echo '<li class="breadcrumb-item ' . ((is_year()) ? 
+      echo '<li class="breadcrumb-item ' . ((is_year()) ?
         ('active">' . get_the_date('Y')) :
         ('"><a href="' . get_year_link(get_the_date('Y')) . '">' . get_the_date('Y') . '</a>')) . '</li>';
       if (!is_year()) {
-        echo '<li class="breadcrumb-item ' . ((is_month()) ? 
+        echo '<li class="breadcrumb-item ' . ((is_month()) ?
           ('active">' . get_the_date('M')) :
           ('"><a href="' . get_month_link(get_the_date('Y'), get_the_date('m')) . '">' . get_the_date('M') . '</a>')) . '</li>';
         if (!is_month()) {

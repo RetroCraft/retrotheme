@@ -6,8 +6,8 @@
         <p>
           <small class="text-muted">
             By <?php the_author_posts_link(); ?> | <?php get_date(); ?> | Category: <?php retrotheme_category_pills(); ?><br />
+            Tags: <?php the_tags('<span class="tags"><span class="badge badge-pill badge-default">', '</span><span class="badge badge-pill badge-default">', '</span></span>'); ?>
           </small>
-          Tags: <?php the_tags('<span class="tags"><span class="tag tag-pill tag-default">', '</span><span class="tag tag-pill tag-default">', '</span></span>'); ?>
         </p>
         <ul class="breadcrumb">
           <?php the_breadcrumb(); ?>

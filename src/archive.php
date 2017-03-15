@@ -12,9 +12,13 @@
       <hr> 
       <?php while (have_posts()): the_post(); ?>
         <div class="list-group">
-          <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action">
-            <h4 class="list-group-item-heading"><?php the_title(); ?></h4>
-            <p class="list-group-item-text text-muted"><?php get_date(); ?> | By <?php the_author(); ?></p>
+          <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1"><?php the_title(); ?></h4>
+              <small><?php get_date(); ?></small>            
+            </div>
+            <?php the_excerpt(); ?>
+            <small>By <?php the_author(); ?></small>
           </a>
         </div>
       <?php endwhile; else: ?>

@@ -12,6 +12,11 @@
         <ul class="breadcrumb">
           <?php the_breadcrumb(); ?>
         </ul>
+        <?php if (the_top_category()->slug == 'study-sheets'): ?>
+          <p>
+            This is a study sheet. To get that nice print layout that I usually have, just try to print, and it should automatically fix up the layout. For best results, please use the latest version of Chrome.
+          </p>
+        <?php endif; ?>
         <hr>
         <div class="content">
           <?php 

@@ -16,10 +16,8 @@
         <div class="content">
           <?php 
             if (the_top_category()->slug == 'study-sheets') {
-              $content = get_the_content( $more_link_text, $strip_teaser );
-              $content = apply_filters( 'the_content', $content );
-              $content = str_replace( ']]>', ']]&gt;', $content );
-              echo $content;
+              $p = new SuperMarkdown();
+              echo $p->parse(get_the_content());
             } else {
               the_content(); 
             }

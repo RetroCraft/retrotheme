@@ -49,11 +49,29 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
           ];
       }
       
-      return [['text', '('], 1];
+      return [['text', '~'], 1];
   }
 
   protected function renderSubscript($element) {
       return '<sub>' . $this->renderAbsy($element[1]) . '</sub>';
+  }
+
+  /**
+    * @marker ^
+    */
+  protected function parseSuperscript($markdown) {
+      if (preg_match('/^\^(.+?)\^/', $markdown, $matches)) {
+          return [
+              ['superscript', $this->parseInline($matches[1])],
+              strlen($matches[0])
+          ];
+      }
+      
+      return [['text', '^'], 1];
+  }
+
+  protected function renderSuperscript($element) {
+      return '<sup>' . $this->renderAbsy($element[1]) . '</sup>';
   }
 
   /**
@@ -90,6 +108,24 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
 
   protected function renderColour($element) {
       return '<span style="color:' . $element[2] . '!important">' . $this->renderAbsy($element[1]) . '</span>';
+  }
+
+  /**
+    * @marker $$
+    */
+  protected function parseMath($markdown) {
+      if (preg_match('/^\$\$(.+?)\$\$/', $markdown, $matches)) {
+          return [
+              ['math', $matches[1]],
+              strlen($matches[0])
+          ];
+      }
+      
+      return [['text', '$$'], 2];
+  }
+
+  protected function renderMath($element) {
+      return '$$' . $element[1] . '$$';
   }
 
   protected function renderImage($block) {

@@ -1,6 +1,7 @@
 <?php
 class SuperMarkdown extends \cebe\markdown\Markdown {
-  public $html5 = false;
+  public $html5 = true;
+  public $enableNewlines = true;
 
   /**
     * @marker |
@@ -139,11 +140,20 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
 
     $url = htmlspecialchars($block['url'], ENT_COMPAT | ENT_HTML401, 'UTF-8');
 
-    return '<img src="' . $url . '"'
-            . ' width="' . htmlspecialchars($block['text'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, 'UTF-8') . '"'
-            . ' style="shape-outside:url(\'' . $url . '\');"'
-            . (empty($block['title']) ? '' : ' title="' . htmlspecialchars($block['title'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, 'UTF-8') . '"')
-            . ($this->html5 ? '>' : ' />');
+		return '<img src="' . $url . '"'
+			   . ' width="' . htmlspecialchars($block['text'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, 'UTF-8') . '"'
+			   . ' style="shape-outside:url(\'' . $url . '\');"'
+			   . (empty($block['title']) ? '' : ' title="' . htmlspecialchars($block['title'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, 'UTF-8') . '"')
+			   . ($this->html5 ? '>' : ' />');
+	}
+
+  protected function renderText($text) {
+		if ($this->enableNewlines) {
+			$br = $this->html5 ? "<br>\n" : "<br />\n";
+			return strtr($text[1], ["  \n" => $br, "\n" => $br]);
+		} else {
+			return parent::renderText($text);
+		}
 	}
 }
 ?>

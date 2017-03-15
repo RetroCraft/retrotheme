@@ -1,11 +1,43 @@
 @media print {
+  // @page STUFF
+  @page {
+    size: auto;
+    margin: 12mm 12mm 12mm 12mm;
+
+    @top-center {
+      content: element(pageHeader);
+    }
+
+    @bottom-center {
+      content: element(pageFooter);
+    }
+  }
+
   // LAYOUT
-  .navbar, footer, .sidebar, .comments {
+  .navbar, .sidebar, .comments {
     display: none !important;
   }
 
   .not-footer {
     min-height: 0;
+  }
+
+  body {
+    padding-bottom: 4rem!important;
+    margin: 0;
+  }
+
+  footer {
+    position: running(pageFooter);
+    bottom: 0;
+    left: 0;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    width: 100%;
+
+    *:not(:first-child) {
+      display: none;
+    }
   }
 
   .post {
@@ -19,6 +51,7 @@
     & > h1 {
       border: 0;
       font-size: 12pt !important;
+      position: running(pageHeader);
 
       &::before {
         display: inline;
@@ -39,6 +72,7 @@
     display: inline;
     margin: 0;
     padding: 0;
+    page-break-inside: avoid;
   }
 
   h1 {
@@ -46,6 +80,7 @@
     text-align: center;
     border-bottom: 1px solid black;
     font-family: "Roboto" !important;
+    page-break-after: avoid;
   }
 
   h2 {
@@ -88,6 +123,8 @@ img {
   shape-image-threshold: 0.5;
   shape-margin: 10px;
   float: left;
+  page-break-before: avoid;
+  page-break-after: avoid;
 }
 
 em {

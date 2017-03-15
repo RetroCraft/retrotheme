@@ -13,7 +13,7 @@ var del           = require('del');
 var src = 'src/**';
 var dist = 'dist/';
 
-var uploadable = [src, "!src/style.scss", "!src/css/**", "!src/js/**"];
+var uploadable = [src, "!src/style.scss", "!src/css/**", "!src/js/**", "!src/lib/vendor/**"];
 
 gulp.task('clean', function () {
   del.sync(['./dist/**', '!./dist']);

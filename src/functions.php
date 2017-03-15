@@ -169,5 +169,9 @@
     }
   }
 
+  // Initialize Composer
+  require_once('lib/vendor/autoload.php');
+  require_once('lib/supermarkdown.php');
+
   require_once('lib/wp_bootstrap_navwalker.php');
 ?>

@@ -1,0 +1,101 @@
+@media print {
+  // LAYOUT
+  .navbar, footer, .sidebar, .comments {
+    display: none !important;
+  }
+
+  .not-footer {
+    min-height: 0;
+  }
+
+  .post {
+    flex: 100% !important;
+    max-width: 100% !important;
+
+    & > *:not(.content) {
+      display: none;
+    }
+  }
+
+  // FONTS
+  body {
+    font-family: "Roboto Condensed" !important;
+    font-size: 10pt !important;
+    line-height: 1.0 !important;
+    height: auto !important;
+  }
+
+  p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 11pt !important;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-family: "Roboto" !important;
+  }
+
+  h2 {
+    color: red !important;
+  }
+
+  h3 {
+    font-style: italic;
+    color: darkred !important;
+  }
+
+  h4 {
+    &::before {
+      display: inline;
+      content: "> ";
+    }
+
+    color: darkorange !important;
+  }
+
+  h1, h2 {
+    font-weight: bold !important;
+  }
+
+  h2, h3, h4 {
+    font-size: 10pt !important;
+    display: inline;
+  }
+  
+  br {
+    display: none;
+  }
+
+  .term:first-child::before {
+    display: none;
+  }
+}
+
+img {  
+  shape-image-threshold: 0.5;
+  shape-margin: 10px;
+  float: left;
+  height: 150px;
+}
+
+em {
+  color: dodgerblue;
+}
+
+.term {
+  font-weight: bold;
+  color: limegreen;
+
+  &::before {
+    display: inline;
+    content: " | ";
+  }
+}
+
+.def {
+  font-style: italic;
+  color: #444;
+}

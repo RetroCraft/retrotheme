@@ -9,6 +9,18 @@
 
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 
+  <?php
+    $categories = get_categories(array(
+      'orderby' => 'name',
+      'parent'  => 0
+    ));
+
+    if ($categories[0]->slug == 'study-sheets') {
+      $sheet = get_template_directory_uri() . '/css/study-sheet.css';
+      echo '<link rel="stylesheet" type="text/css" href="'.$sheet.'">';
+    }
+  ?>
+
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -19,4 +31,4 @@
   <div class="not-footer">
     <?php get_template_part('navbar'); ?>
 
-    <div class="container m-t-2">
+    <div class="container mt-3">

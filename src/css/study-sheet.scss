@@ -12,8 +12,18 @@
     flex: 100% !important;
     max-width: 100% !important;
 
-    & > *:not(.content) {
+    & > *:not(.content):not(h1) {
       display: none;
+    }
+
+    & > h1 {
+      border: 0;
+      font-size: 12pt !important;
+
+      &::before {
+        display: inline;
+        content: "Study Sheet: ";
+      }
     }
   }
 

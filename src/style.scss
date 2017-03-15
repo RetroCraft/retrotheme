@@ -16,6 +16,10 @@ html, body {
   height: 100%;
 }
 
+h1::first-letter {
+  margin-top: 0;
+}
+
 $dark-background: #373a3c;
 
 .navbar-dark .dropdown-menu {

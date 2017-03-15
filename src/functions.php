@@ -81,6 +81,15 @@
     }
   }
 
+  function the_top_category() {
+    $categories = get_categories(array(
+      'orderby' => 'name',
+      'parent'  => 0
+    ));
+
+    return $categories[0];
+  }
+
   function get_date() {
     date_i18n(get_option('date_format'), the_date());
   }

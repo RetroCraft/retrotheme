@@ -10,12 +10,7 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 
   <?php
-    $categories = get_categories(array(
-      'orderby' => 'name',
-      'parent'  => 0
-    ));
-
-    if ($categories[0]->slug == 'study-sheets') {
+    if (the_top_category()->slug == 'study-sheets') {
       $sheet = get_template_directory_uri() . '/css/study-sheet.css';
       echo '<link rel="stylesheet" type="text/css" href="'.$sheet.'">';
     }

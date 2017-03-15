@@ -14,7 +14,16 @@
         </ul>
         <hr>
         <div class="content">
-          <?php the_content(); ?>
+          <?php 
+            if (the_top_category()->slug == 'study-sheets') {
+              $content = get_the_content( $more_link_text, $strip_teaser );
+              $content = apply_filters( 'the_content', $content );
+              $content = str_replace( ']]>', ']]&gt;', $content );
+              echo $content;
+            } else {
+              the_content(); 
+            }
+          ?>
         </div>
         <?php if ( comments_open() || get_comments_number() ) : ?>
           <div class="comments">

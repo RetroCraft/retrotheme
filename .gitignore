@@ -1,5 +1,6 @@
 # Node thingamajiggers
 node_modules
+src/lib/vendor
 
 # Output thingies
 dist/**

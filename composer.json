@@ -1,0 +1,16 @@
+{
+    "config": {
+        "vendor-dir": "src/lib/vendor"
+    },
+    "name": "retrocraft/retrotheme",
+    "description": "WordPress theme for blog.retrocraft.ca",
+    "authors": [
+        {
+            "name": "James Ah Yong",
+            "email": "retrocraft314@gmail.com"
+        }
+    ],
+    "require": {
+        "cebe/markdown": "^1.1"
+    }
+}

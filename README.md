@@ -11,6 +11,7 @@ Theme I made for my [site/blog](blog.retrocraft.ca).
 
 ## Study Sheets
 The study sheets on the site use a customized version of Markdown. Based on GFM, there are special features for commonly used study sheet things.
+
 | Syntax | Usage |
 | --- | --- |
 | `|Term|` | Key Terms. Renders as green and bold |

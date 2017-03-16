@@ -18,6 +18,9 @@ class wp_bootstrap_navwalker extends Walker_Nav_menu {
 		if( $depth && $args->walker->has_children ){
 			$classes[] = 'dropdown-menu dropdown-menu-right';
 		}
+		if ($depth >= 1) {
+			$classes[] = 'dropdown-item';
+		}
 		$class_names =  join(' ', apply_filters('nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		$class_names = ' class="' . esc_attr($class_names) . '"';
 		$id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
@@ -29,7 +32,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_menu {
 		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr($item->url) . '"' : '';
 		$attributes .= ( $args->walker->has_children ) ? ' class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="nav-link"';
 		$item_output = $args->before;
-		$item_output .= ( $depth > 0 ) ? '<a class="dropdown-item"' . $attributes . '>' : '<a' . $attributes . '>';
+		$item_output .= ( $depth > 0 ) ? '<a class="nav-link"' . $attributes . '>' : '<a' . $attributes . '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= '</a>';
 		$item_output .= $args->after;

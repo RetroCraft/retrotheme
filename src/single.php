@@ -20,12 +20,9 @@
         <hr>
         <div class="content">
           <?php 
-            if (the_top_category()->slug == 'study-sheets') {
-              $p = new SuperMarkdown();
-              echo $p->parse(get_the_content());
-            } else {
-              the_content(); 
-            }
+            $p = new SuperMarkdown();
+            $p->category = the_top_category()->slug;
+            echo $p->parse(get_the_content());
           ?>
         </div>
         <?php if ( comments_open() || get_comments_number() ) : ?>

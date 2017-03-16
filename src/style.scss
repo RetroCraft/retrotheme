@@ -77,6 +77,11 @@ $dark-background: #373a3c;
   }
 }
 
+iframe.gdoc {
+  height: 80vh;
+  width: 100%;
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
   content: ">" !important;
 }

@@ -3,14 +3,20 @@
   <div class="col-md-8">
     <h1>Posts</h1>
     <hr>
-    <?php if (have_posts()): while (have_posts()): the_post(); ?>
+    <?php if (have_posts()): ?>
       <div class="list-group">
-        <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action">
-          <h4 class="list-group-item-heading"><?php the_title(); ?></h4>
-          <p class="list-group-item-text text-muted"><?php get_date(); ?></p>
-        </a>
+        <?php while (have_posts()): the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1"><?php the_title(); ?></h4>
+              <small><?php get_date(); ?></small>            
+            </div>
+            <small>By <?php the_author(); ?></small>
+            <?php retrotheme_category_pills(); ?>
+          </a>
+        <?php endwhile; ?>
       </div>
-    <?php endwhile; else: ?>
+    <?php else: ?>
       <p><?php _e('Sorry, no posts found.'); ?></p>
     <?php endif; ?>
   </div>

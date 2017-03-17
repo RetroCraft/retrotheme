@@ -19,11 +19,7 @@
         <?php endif; ?>
         <hr>
         <div class="content">
-          <?php 
-            $p = new SuperMarkdown();
-            $p->category = the_top_category()->slug;
-            echo $p->parse(get_the_content());
-          ?>
+          <?php the_content(); ?>
         </div>
         <?php if ( comments_open() || get_comments_number() ) : ?>
           <div class="comments">

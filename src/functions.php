@@ -82,13 +82,25 @@
     }
   }
 
-  function the_top_category() {
-    $categories = get_categories(array(
-      'orderby' => 'name',
-      'parent'  => 0
-    ));
+  function retrotheme_markdown($content) {
+    $p = new SuperMarkdown();
+    if (is_single() && in_the_loop() && is_main_query())
+      $p->category = the_top_category()->slug;
+    return $p->parse($content);
+  }
 
-    return $categories[0];
+  add_filter('the_content', 'retrotheme_markdown', 0);
+
+  function the_top_category() {
+    $category = get_the_category(); 
+    $parent = get_ancestors($category[0]->term_id,'category');
+    if (empty($parent)) {
+      $parent[] = array($category[0]->term_id);
+    }
+    $parent = array_pop($parent);
+    $parent = get_category($parent); 
+
+    return $parent;
   }
 
   function get_date() {

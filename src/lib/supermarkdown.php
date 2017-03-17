@@ -8,7 +8,7 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
     * @marker |
     */
   protected function parseTerm($markdown) {
-    if (preg_match('/^\|(.+?)\|/', $markdown, $matches) && $category == 'study-sheets') {
+    if (preg_match('/^\|(.+?)\|/', $markdown, $matches) && $this->category == 'study-sheets') {
       return [
         ['term', $this->parseInline($matches[1])],
         strlen($matches[0])
@@ -26,7 +26,7 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
     * @marker (
     */
   protected function parseDef($markdown) {
-    if (preg_match('/^\((.+?)\)/', $markdown, $matches) && $category == 'study-sheets') {
+    if (preg_match('/^\((.+?)\)/', $markdown, $matches) && $this->category == 'study-sheets') {
       return [
         ['def', $this->parseInline($matches[1])],
         strlen($matches[0])

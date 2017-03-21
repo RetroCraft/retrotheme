@@ -85,7 +85,7 @@
   function retrotheme_markdown($content) {
     $p = new SuperMarkdown();
     if (is_single() && in_the_loop() && is_main_query())
-      $p->category = the_top_category()->slug;
+      $p->category = the_top_category();
     return $p->parse($content);
   }
 
@@ -93,14 +93,15 @@
 
   function the_top_category() {
     $category = get_the_category(); 
-    $parent = get_ancestors($category[0]->term_id,'category');
-    if (empty($parent)) {
-      $parent[] = array($category[0]->term_id);
+    $category_parent_id = $category[0]->category_parent;
+    if ( $category_parent_id != 0 ) {
+        $category_parent = get_term( $category_parent_id, 'category' );
+        $slug = $category_parent->slug;
+    } else {
+        $slug = $category[0]->slug;
     }
-    $parent = array_pop($parent);
-    $parent = get_category($parent); 
 
-    return $parent;
+    return $slug;
   }
 
   function get_date() {

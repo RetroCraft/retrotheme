@@ -1,6 +1,6 @@
 <?php get_header(); ?>
   <div class="row">
-    <div class="col-md-8 post">
+    <div id="post-<?php the_ID(); ?>" <?php post_class('col-md-8'); ?>>
       <?php if (have_posts()): while (have_posts()): the_post(); ?>
         <h1><?php the_title(); ?></h1>
         <p>
@@ -21,13 +21,20 @@
         <div class="content">
           <?php the_content(); ?>
         </div>
+        <?php wp_link_pages(array(
+          'before'      => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'retrotheme') . '</span>',
+          'after'       => '</div>',
+          'link_before' => '<span>',
+          'link_after'  => '</span>',
+          ));
+        ?>
         <?php if ( comments_open() || get_comments_number() ) : ?>
           <div class="comments">
             <?php comments_template(); ?>
           </div>
         <?php endif; ?>
       <?php endwhile; else: ?>
-        <p><?php _e('Sorry, this page does not exist'); ?></p>
+        <p><?php _e('Sorry, this page does not exist', 'retrotheme'); ?></p>
       <?php endif; ?>
     </div>
     <div class="col-md-4 sidebar">

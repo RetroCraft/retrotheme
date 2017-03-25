@@ -1,8 +1,12 @@
 <?php
   /**
-   * Register navigation menus
+   * Initialize all the important theme things
    */
   function retrotheme_setup() {
+    add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ));
+    add_theme_support('title-tag');
+    add_theme_support('automatic-feed-links');
+    // Register navigation
     register_nav_menu('primary', __('Primary navigation', 'retrotheme'));
   }
 

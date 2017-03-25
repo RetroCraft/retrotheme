@@ -7,7 +7,7 @@
         the_content();
       }
     } else {
-      _e('Home page not found.');
+      _e('Home page not found.', 'retrotheme');
       get_footer();
     }
 else: ?>

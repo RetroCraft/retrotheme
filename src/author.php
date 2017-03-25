@@ -20,7 +20,7 @@
           </a>
         </div>
       <?php endwhile; else: ?>
-        <p><?php _e('Sorry, no posts found.'); ?></p>
+        <p><?php _e('Sorry, no posts found.', 'retrotheme'); ?></p>
     <?php endif; ?>
   </div>
   <div class="col-md-4">

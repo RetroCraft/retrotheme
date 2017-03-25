@@ -29,8 +29,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('dist/js/'))
     .pipe(sftp({
       host: 'retrocraft.ca',
-      user: 'james',
-      key: '~/.ssh/james@retrocraft.ca',
+      auth: 'key',
       remotePath: '/var/www/blog/wp-content/themes/retrotheme/js'
     }));
 });
@@ -44,8 +43,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist/css/'))
     .pipe(sftp({
       host: 'retrocraft.ca',
-      user: 'james',
-      key: '~/.ssh/james@retrocraft.ca',
+      auth: 'key',
       remotePath: '/var/www/blog/wp-content/themes/retrotheme/css'
     }));
 
@@ -57,8 +55,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist/'))
     .pipe(sftp({
       host: 'retrocraft.ca',
-      user: 'james',
-      key: '~/.ssh/james@retrocraft.ca',
+      auth: 'key',
       remotePath: '/var/www/blog/wp-content/themes/retrotheme/'
     }));
 });
@@ -69,8 +66,7 @@ gulp.task('upload', function () {
     .pipe(gulp.dest(dist))
     .pipe(sftp({
       host: 'retrocraft.ca',
-      user: 'james',
-      key: '~/.ssh/james@retrocraft.ca',
+      auth: 'key',
       remotePath: '/var/www/blog/wp-content/themes/retrotheme/'
     }));
 });

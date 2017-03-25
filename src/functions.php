@@ -5,6 +5,11 @@
 
   add_action('after_setup_theme', 'retrotheme_setup');
 
+  function retrotheme_editor_styles() {
+    add_editor_style(['style.css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css']);
+  }
+  add_action( 'admin_init', 'retrotheme_editor_styles' );
+
   function retrotheme_scripts() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('tether', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js');
@@ -90,6 +95,7 @@
   }
 
   add_filter('the_content', 'retrotheme_markdown', 0);
+  add_filter('the_editor_content', 'retrotheme_markdown', 0);
 
   function the_top_category() {
     $category = get_the_category(); 

@@ -20,10 +20,14 @@ gulp.task('clean', function () {
 });
 
 gulp.task('js', function() {
-   return gulp.src(['src/js/**/*.js'])
+   return gulp.src(['src/js/**/*.js', 
+      'node_modules/skrollr/dist/skrollr.min.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js', 
+      'node_modules/cheet.js/cheet.min.js',
+      'src/js/main.js'
+    ])
     .pipe(sourcemaps.init())
-      // Uglify breaks things so we're not uglifying for now.
-      // .pipe(uglify())
+      .pipe(uglify())
       .pipe(concat('main.js'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/js/'))

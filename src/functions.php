@@ -16,7 +16,7 @@
    * Load styles for TinyMCE
    */
   function retrotheme_editor_styles() {
-    add_editor_style(['style.css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css']);
+    add_editor_style(['style.css']);
   }
   add_action( 'admin_init', 'retrotheme_editor_styles' );
 
@@ -25,14 +25,9 @@
    */
   function retrotheme_scripts() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('tether', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js');
-    wp_enqueue_script('skrollr', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js');
-    wp_enqueue_script('cheet', 'https://cdn.rawgit.com/namuol/cheet.js/master/cheet.min.js');
     wp_enqueue_script('mathjax', 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML');
-    wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array('jquery', 'tether'));
-    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery', 'bootstrap', 'skrollr', 'mathjax'));
+    wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery', 'mathjax'));
 
-    wp_enqueue_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css');
     if (is_front_page())
       wp_enqueue_style('home', get_template_directory_uri() . '/css/home.css');
   }

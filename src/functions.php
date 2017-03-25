@@ -1,15 +1,24 @@
 <?php
+  /**
+   * Register navigation menus
+   */
   function retrotheme_setup() {
     register_nav_menu('primary', __('Primary navigation', 'retrotheme'));
   }
 
   add_action('after_setup_theme', 'retrotheme_setup');
 
+  /**
+   * Load styles for TinyMCE
+   */
   function retrotheme_editor_styles() {
     add_editor_style(['style.css', '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css']);
   }
   add_action( 'admin_init', 'retrotheme_editor_styles' );
 
+  /**
+   * Load all necessary scripts and styles
+   */
   function retrotheme_scripts() {
     wp_enqueue_script('jquery');
     wp_enqueue_script('tether', 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js');
@@ -26,6 +35,9 @@
 
   add_action('wp_enqueue_scripts', 'retrotheme_scripts');
 
+  /**
+   * Register widget locations
+   */
   function retrotheme_widgets_init() {
       register_sidebar(array(
         'name'          => 'Post Sidebar',
@@ -48,6 +60,9 @@
 
   add_action('widgets_init', 'retrotheme_widgets_init');
 
+  /**
+   * Comment template
+   */
   function retrotheme_comments_callback($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 
@@ -77,6 +92,9 @@
     <?php
   }
 
+  /**
+   * Returns stylized pills for the category of a page
+   */
   function retrotheme_category_pills() {
     global $wp_query;
 
@@ -87,6 +105,9 @@
     }
   }
 
+  /**
+   * Parse custom markdown
+   */
   function retrotheme_markdown($content) {
     $p = new SuperMarkdown();
     if (is_single() && in_the_loop() && is_main_query())
@@ -95,8 +116,10 @@
   }
 
   add_filter('the_content', 'retrotheme_markdown', 0);
-  add_filter('the_editor_content', 'retrotheme_markdown', 0);
 
+  /**
+   * Return the top-level category of the current page
+   */
   function the_top_category() {
     $category = get_the_category(); 
     $category_parent_id = $category[0]->category_parent;
@@ -114,6 +137,9 @@
     date_i18n(get_option('date_format'), the_date());
   }
 
+  /**
+   * Generate a breadcrumb
+   */
   function the_breadcrumb() {
     global $wp_query;
 

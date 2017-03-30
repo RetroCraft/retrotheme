@@ -99,7 +99,7 @@ data-_box-100p="background-color:rgb(0,0,0)" data-_box-200p="transform:translate
     <div class="bottom">
       <p>
         Contact: <a href="mailto:james@retrocraft.ca">james@retrocraft.ca</a><br>
-        &copy; James Ah Yong, 2016. All rights reserved, except for the ones that aren't.<br>
+        &copy; James Ah Yong, 2017. All rights reserved, except for the ones that aren't.<br>
         <pre>↑ ↑ ↓ ↓ ← → ← → B A</pre>
       </p>
     </div>

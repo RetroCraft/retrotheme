@@ -16,6 +16,9 @@ Basic theme.
 
  @import '../node_modules/bootstrap/scss/bootstrap';
 
+ // Fonts
+ @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&subset=greek,greek-ext,latin-ext');
+
 html, body {
   height: 100%;
 }

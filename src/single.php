@@ -15,6 +15,7 @@
         <?php if (the_top_category() == 'study-sheets'): ?>
           <p>
             This is a study sheet. To get that nice print layout that I usually have, just try to print, and it should automatically fix up the layout. For best results, please use the latest version of Chrome.
+            Clicking terms will try to find a Wikipedia page which matches the term.
           </p>
         <?php endif; ?>
         <hr>

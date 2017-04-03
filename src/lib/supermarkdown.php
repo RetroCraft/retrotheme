@@ -8,18 +8,25 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
     * @marker |
     */
   protected function parseTerm($markdown) {
-    if (preg_match('/^\|(.+?)\|/', $markdown, $matches) && $this->category == 'study-sheets') {
-      return [
-        ['term', $this->parseInline($matches[1])],
-        strlen($matches[0])
-      ];
+    if (preg_match('/^\|(.+?)(\|(.+?))?\|/', $markdown, $matches) && $this->category == 'study-sheets') {
+      if (count($matches) == 2)
+        return [
+          ['term', $this->parseInline($matches[1]), $matches[1]],
+          strlen($matches[0])
+        ];
+      else
+        return [
+          ['term', $this->parseInline($matches[1]), $matches[3]],
+          strlen($matches[0])
+        ];
     }
     
     return [['text', '|'], 1];
   }
 
   protected function renderTerm($element) {
-    return '<span class="term">' . $this->renderAbsy($element[1]) . '</span>';
+    return '<a class="term" href="https://en.wikipedia.org/wiki/Special:Search?search=' . $element[2] . '" target="_blank">' 
+            . $this->renderAbsy($element[1]) . '</a>';
   }
 
   /**
@@ -156,5 +163,22 @@ class SuperMarkdown extends \cebe\markdown\Markdown {
 			return parent::renderText($text);
 		}
 	}
+
+  protected $escapeCharacters = [
+		'\\', // backslash
+		'`', // backtick
+		'*', // asterisk
+		'_', // underscore
+		'{', '}', // curly braces
+		'[', ']', // square brackets
+		'(', ')', // parentheses
+		'#', // hash mark
+		'+', // plus sign
+		'-', // minus sign (hyphen)
+		'.', // dot
+		'!', // exclamation mark
+		'<', '>', // HTML
+    '|' // pipe
+	];
 }
 ?>

@@ -17,6 +17,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-4770009561063252",
+      enable_page_level_ads: true
+    });
+  </script>
+
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

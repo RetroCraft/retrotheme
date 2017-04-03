@@ -34,7 +34,8 @@ data-_box-100p="background-color:rgb(0,0,0)" data-_box-200p="transform:translate
         <div class="card-columns">
           <?php
           $posts = new WP_Query(array(
-            'post_type' => 'post'
+            'post_type' => 'post',
+            'posts_per_page' => 4
             ));
           if($posts->have_posts()): while ($posts->have_posts()): $posts->the_post();
           ?>

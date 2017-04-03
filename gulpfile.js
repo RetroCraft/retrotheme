@@ -22,6 +22,7 @@ gulp.task('clean', function () {
 gulp.task('js', function() {
    return gulp.src(['src/js/**/*.js', 
       'node_modules/skrollr/dist/skrollr.min.js',
+      'node_modules/tether/dist/js/tether.min.js',
       'node_modules/bootstrap/dist/js/bootstrap.js', 
       'node_modules/cheet.js/cheet.min.js',
       'src/js/main.js'

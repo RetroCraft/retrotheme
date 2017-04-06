@@ -45,7 +45,7 @@
     max-width: 100% !important;
 
     & > *:not(.content):not(h1) {
-      display: none;
+      display: none !important;
     }
 
     & > h1 {

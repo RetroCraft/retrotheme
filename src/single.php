@@ -19,6 +19,16 @@
           </p>
         <?php endif; ?>
         <hr>
+        <!-- Responsive Ad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-4770009561063252"
+            data-ad-slot="2316025320"
+            data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <hr>
         <div class="content">
           <?php the_content(); ?>
         </div>
@@ -29,6 +39,17 @@
           'link_after'  => '</span>',
           ));
         ?>
+        <hr>
+        <!-- Responsive Ad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-4770009561063252"
+            data-ad-slot="2316025320"
+            data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <hr>
         <?php if ( comments_open() || get_comments_number() ) : ?>
           <div class="comments">
             <?php comments_template(); ?>

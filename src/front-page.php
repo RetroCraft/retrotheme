@@ -81,7 +81,7 @@ data-_box-100p="background-color:rgb(0,0,0)" data-_box-200p="transform:translate
     </div>
     <hr>
     <div style="position:relative" data-_box-100p="left:100%" data-_box-200p="left:0%">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad velit sint dolore atque earum dolor asperiores, optio ex, temporibus ea fugit iure, facere in sed. Quibusdam fugiat, incidunt impedit at.</p>
+      <?php echo apply_filters('the_content', get_page_by_title('About')->post_content); ?>
     </div>
   </div>
 </div>

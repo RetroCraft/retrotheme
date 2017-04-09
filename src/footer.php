@@ -11,7 +11,12 @@
       <?php endif; ?>-->
       <p>Made with &hearts; by James... I think. What's a &hearts; again?</p>
       <hr>
-      <small>Powered by Wordpress, Bootstrap, and a lot of <a href="//github.com/retrocraft/retrotheme">PHP</a>.</small>
+      <p>
+        <a href="mailto:retrocraft314@gmail.com" class="fa fa-envelope"></a>
+        <a href="https://instagram.com/james.ahyong" class="fa fa-instagram"></a>
+        <a href="https://github.com/retrocraft/retrotheme" class="fa fa-github"></a>
+        <a href="https://patreon.com/retrocraft" class="fa fa-dollar"></a>
+      </p>
     </div>
   </footer>
 

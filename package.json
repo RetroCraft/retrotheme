@@ -8,6 +8,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "cheet.js": "^0.3.3",
     "del": "^2.2.2",
+    "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-changed": "^2.0.0",

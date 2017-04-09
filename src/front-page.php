@@ -98,11 +98,16 @@ data-_box-100p="background-color:rgb(0,0,0)" data-_box-200p="transform:translate
       <p>I'm horrible at coming up with Konami Code Easter Eggs. Have a happy face!</p>
     </div>
     <div class="bottom">
-      <p>
-        Contact: <a href="mailto:james@retrocraft.ca">james@retrocraft.ca</a><br>
-        &copy; James Ah Yong, 2017. All rights reserved, except for the ones that aren't.<br>
+        <p>Made with &hearts; by James... I think. What's a &hearts; again?</p>
+        <hr>
+        <p style="font-size:150%">
+          <a href="mailto:retrocraft314@gmail.com" class="fa fa-envelope"></a>
+          <a href="https://instagram.com/james.ahyong" class="fa fa-instagram"></a>
+          <a href="https://github.com/retrocraft/retrotheme" class="fa fa-github"></a>
+          <a href="https://patreon.com/retrocraft" class="fa fa-dollar"></a>
+        </p>
+        <hr>
         <pre>↑ ↑ ↓ ↓ ← → ← → B A</pre>
-      </p>
     </div>
   </div>
 </div>

@@ -20,8 +20,8 @@ Basic theme.
  @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&subset=greek,greek-ext,latin-ext');
 
  // Font Awesome
-@import '../node_modules/font-awesome/scss/font-awesome.scss';
 $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts";
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
 
 html, body {
   height: 100%;

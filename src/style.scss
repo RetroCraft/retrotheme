@@ -12,14 +12,14 @@ License: WTFPL License
 License URI: http://www.wtfpl.net/
 
 Basic theme.
- */
+*/
 
- @import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap/scss/bootstrap';
 
- // Fonts
- @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&subset=greek,greek-ext,latin-ext');
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&subset=greek,greek-ext,latin-ext');
 
- // Font Awesome
+// Font Awesome
 $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts";
 @import '../node_modules/font-awesome/scss/font-awesome.scss';
 

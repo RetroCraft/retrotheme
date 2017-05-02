@@ -14,7 +14,7 @@ The study sheets on the site use a customized version of Markdown. Based on GFM,
 
 | Syntax | Usage |
 | --- | --- |
-| `|Term|` | Key Terms. Renders as green and bold |
+| `\|Term\|` | Key Terms. Renders as green and bold |
 | `(side note)` | Unimportant things. Because this uses the brackets, if you want to not have italicized grey text, escape the bracket (`thing\(s\)`). Renders as grey and italic |
 | `$$x^2$$` | LaTeX math. Renders as an inline math block. |
 | `^sup^` | Superscript. |
